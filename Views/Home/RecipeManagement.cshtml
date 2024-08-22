@@ -1,0 +1,65 @@
+@model IEnumerable<recipe_app.Models.RecipeModel>
+
+@{
+    ViewData["Title"] = "Recipe Management";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd">
+    Add Recipe
+</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Ingredients</th>
+            <th scope="col">Cooking Steps</th>
+            <th scope="col">Function</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        @foreach (var recipe in Model)
+        {
+            <tr>
+                <th scope="row">@recipe.Id</th>
+                <td>@recipe.Name</td>
+                <td>@recipe.Category</td>
+                <td>
+                    <ul>
+                        @foreach (var ingredient in recipe.Ingredients)
+                        {
+                            <li>@ingredient</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var step in recipe.CookingSteps)
+                        {
+                            <li>@step</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdit">
+                        Edit
+                    </button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Modals {
+    <partial name="~/Views/Home/modal/_modalAdd.cshtml">
+    <partial name="~/Views/Home/modal/_modalEdit.cshtml">
+    <partial name="~/Views/Home/modal/_modalDelete.cshtml">
+    <script src="~/areas/home/recipeManagement.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="container">
+        <div class="carousel">
+        <img src="~/images/food-carousel.jpg" alt="Food Carousel">
+    </div>
+
+    <div class="recipe-cards">
+        <div class="card">
+            <h3>Nasi Goreng</h3>
+            <p>Makanan Indonesia</p>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a asp-area="" asp-controller="Recipe" asp-action="Nasigoreng">Detail</a>
+        </div>
+        <div class="card">
+            <h3>Kwetiauw</h3>
+            <p>Makanan China</p>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a asp-area="" asp-controller="Recipe" asp-action="Kwetiauw">Detail</a>
+        </div>
+        <div class="card">
+            <h3>Rendang</h3>
+            <p>Makanan Indonesia</p>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a asp-area="" asp-controller="Recipe" asp-action="Rendang">Detail</a>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+@section Style {
+    <link rel="stylesheet" href="~/areas/home/style.css" asp-append-version="true" />
+}
