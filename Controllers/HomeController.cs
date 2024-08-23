@@ -15,7 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        return View(recipes);
     }
     private static List<RecipeModel> recipes = new List<RecipeModel>
     {
@@ -23,7 +23,7 @@ public class HomeController : Controller
         { 
             Id = 1, 
             Name = "Nasi Goreng", 
-            Category = "Main Course",
+            Category = "Indonesia",
             Ingredients = new List<string> { "Rice", "Egg", "Garlic", "Soy Sauce" },
             CookingSteps = new List<string> { "Heat oil in a wok", "Fry garlic until fragrant", "Add rice and stir-fry", "Add soy sauce and mix well" }
         },
@@ -31,7 +31,7 @@ public class HomeController : Controller
         { 
             Id = 2, 
             Name = "Kwetiauw", 
-            Category = "Main Course",
+            Category = "Chinese",
             Ingredients = new List<string> { "Flat rice noodles", "Soy Sauce", "Garlic", "Shrimp" },
             CookingSteps = new List<string> { "Soak noodles in hot water", "Stir-fry garlic and shrimp", "Add noodles and soy sauce", "Stir until well mixed" }
         },
@@ -39,7 +39,7 @@ public class HomeController : Controller
         { 
             Id = 3, 
             Name = "Rendang", 
-            Category = "Main Course",
+            Category = "Indonesia",
             Ingredients = new List<string> { "Beef", "Coconut Milk", "Chili", "Turmeric leaves" },
             CookingSteps = new List<string> { "Blend spices", "Cook beef in coconut milk", "Simmer for hours until dry", "Serve with rice" }
         }

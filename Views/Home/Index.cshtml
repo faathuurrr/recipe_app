@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<recipe_app.Models.RecipeModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,30 +7,21 @@
     <div class="container">
         <div class="carousel">
         <img src="~/images/food-carousel.jpg" alt="Food Carousel">
-    </div>
-
-    <div class="recipe-cards">
-        <div class="card">
-            <h3>Nasi Goreng</h3>
-            <p>Makanan Indonesia</p>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a asp-area="" asp-controller="Recipe" asp-action="Nasigoreng">Detail</a>
-        </div>
-        <div class="card">
-            <h3>Kwetiauw</h3>
-            <p>Makanan China</p>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a asp-area="" asp-controller="Recipe" asp-action="Kwetiauw">Detail</a>
-        </div>
-        <div class="card">
-            <h3>Rendang</h3>
-            <p>Makanan Indonesia</p>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a asp-area="" asp-controller="Recipe" asp-action="Rendang">Detail</a>
-        </div>
-    </div>
-
-    </div>
+    </div>    
+    <div class="row align-items-center text-start flex-nowrap overflow-auto">
+        @foreach (var recipe in Model) {
+            <div class="col-sm-3 g-2" style="width: 30%;">
+                <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">@recipe.Name</h3>
+                            <p class="card-title">@recipe.Category</p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a asp-area="" asp-controller="Home" asp-action="RecipeManagement">Detail</a>
+                        </div>
+                </div>
+            </div>
+        }
+    </div>   
 </div>
 
 @section Style {
